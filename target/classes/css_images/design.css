@@ -1,0 +1,17 @@
+.transparent{
+-fx-background-color: transparent;
+}
+
+.back{
+-fx-background-color:#fff;
+-fx-background-radius: 8px;
+}
+
+.shadow{
+-fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.5), 6,0,0,0);
+}
+
+.card{
+-fx-background-color:linear-gradient(to right, #273573, #637ae6);
+-fx-background-radius:5px;
+}
