@@ -20,7 +20,7 @@ public class Utils {
         }
         Stage stage = (Stage) ((Node) a.getSource()).getScene().getWindow();
         assert root != null;
-        stage.setScene(new Scene(root, 600, 500));
+        stage.setScene(new Scene(root, 770, 500));
         stage.setTitle(title);
         stage.show();
     }
