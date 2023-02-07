@@ -1,15 +1,24 @@
 package com.example.smsfinal;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
 
 public class Utils {
+
+
     public static void changePage(ActionEvent a, String fileName, String title){
         Parent root = null;
         try {
@@ -24,7 +33,7 @@ public class Utils {
         stage.setTitle(title);
         stage.show();
     }
-    public static void LogInUser(ActionEvent event, String username, String password){
+    public static void LogInUser(ActionEvent event, String username, String password, String LoginAs){
         Connection connection = null;
         PreparedStatement psCheck = null;
         ResultSet resultSet = null;
@@ -43,6 +52,9 @@ public class Utils {
                 alert.show();
             }else{
                 while (resultSet.next()){
+
+                    getData.username = username;
+
                     String basePass = resultSet.getString("password1");
 
                     if (basePass.equals(password)){
@@ -146,4 +158,41 @@ public class Utils {
             }
         }
     }
+
+    public static void AdminSceneOf(ActionEvent e, AnchorPane page){
+            page.setVisible(false);
+    }
+
+    public static void AdminSceneOn(ActionEvent e, AnchorPane page){
+        page.setVisible(true);
+    }
+
+    public static ObservableList<studentData> addStudentListData(){
+
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        ObservableList<studentData> listData = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM users";
+
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            studentData
+
+                    studentD;
+
+            while (resultSet.next()){
+                studentD = new studentData(resultSet.getInt("id"), resultSet.getString("name"),
+                        resultSet.getString("surname"), resultSet.getString("phone"),
+                        resultSet.getString("email"));
+                listData.add(studentD);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }return listData;
+        }
 }

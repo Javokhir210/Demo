@@ -49,16 +49,16 @@
                                     </font>
                                  </Label>
                                  <Line endX="32.0" layoutX="123.0" layoutY="139.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
-                                 <Button layoutX="8.0" layoutY="161.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text=" Home page" textFill="WHITE">
+                                 <Button fx:id="btn_AdminHome" layoutX="8.0" layoutY="161.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text=" Home page" textFill="WHITE">
                                     <font>
                                        <Font size="14.0" />
                                     </font></Button>
-                                 <Button layoutX="8.0" layoutY="193.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Add Student" textFill="WHITE">
+                                 <Button fx:id="btn_AdminStudent" layoutX="8.0" layoutY="193.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Add Student" textFill="WHITE">
                                     <font>
                                        <Font size="14.0" />
                                     </font>
                                  </Button>
-                                 <Button layoutX="8.0" layoutY="229.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Add Teacher" textFill="WHITE">
+                                 <Button fx:id="btn_AdminTeacher" layoutX="8.0" layoutY="229.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Add Teacher" textFill="WHITE">
                                     <font>
                                        <Font size="14.0" />
                                     </font>
@@ -93,7 +93,7 @@
                         <children>
                            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               <children>
-                                 <AnchorPane prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminHome_page" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <children>
                                        <AnchorPane prefHeight="108.0" prefWidth="589.0">
                                           <styleClass>
@@ -142,7 +142,7 @@
                                              <AnchorPane layoutX="395.0" layoutY="16.0" prefHeight="77.0" prefWidth="180.0" styleClass="card" stylesheets="@../../../css_images/design.css" />
                                           </children>
                                        </AnchorPane>
-                                       <BarChart layoutX="18.0" layoutY="108.0" prefHeight="150.0" prefWidth="555.0" title="Students' Data chart">
+                                       <BarChart layoutX="17.0" layoutY="120.0" prefHeight="150.0" prefWidth="555.0" style="-fx-background-color: #f7bce9;" title="Students' Data chart">
                                          <xAxis>
                                            <CategoryAxis side="BOTTOM" />
                                          </xAxis>
@@ -150,7 +150,7 @@
                                            <NumberAxis side="LEFT" />
                                          </yAxis>
                                        </BarChart>
-                                       <BarChart layoutX="18.0" layoutY="258.0" prefHeight="150.0" prefWidth="555.0" title="Teachers' Data chart">
+                                       <BarChart layoutX="18.0" layoutY="281.0" prefHeight="150.0" prefWidth="555.0" style="-fx-background-color: #b8d7fc;" title="Teachers' Data chart">
                                           <xAxis>
                                              <CategoryAxis side="BOTTOM" />
                                           </xAxis>
@@ -164,30 +164,29 @@
                                        <String fx:value="shadow" />
                                     </styleClass>
                                  </AnchorPane>
-                                 <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminStudent_page" layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
                                     </styleClass>
                                     <children>
-                                       <AnchorPane prefHeight="227.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css">
+                                       <AnchorPane prefHeight="227.0" prefWidth="587.0" stylesheets="@../../../css_images/design.css">
                                           <styleClass>
                                              <String fx:value="back" />
                                              <String fx:value="shadow" />
                                           </styleClass>
                                           <children>
-                                             <TableView layoutX="7.0" layoutY="54.0" prefHeight="165.0" prefWidth="565.0">
+                                             <TableView fx:id="table_adminStudent" layoutX="7.0" layoutY="54.0" onMouseClicked="#setAddStudentSelect" prefHeight="165.0" prefWidth="565.0">
                                                <columns>
-                                                 <TableColumn prefWidth="77.0" text="Student ID" />
-                                                 <TableColumn prefWidth="107.0" text="Name" />
-                                                   <TableColumn prefWidth="89.0" text="Surname" />
-                                                   <TableColumn prefWidth="121.0" text="Phone number" />
-                                                   <TableColumn prefWidth="170.0" text="Email" />
+                                                 <TableColumn fx:id="col_adminPStudentId" prefWidth="77.0" text="Student ID" />
+                                                 <TableColumn fx:id="col_adminPStudentName" prefWidth="107.0" text="Name" />
+                                                   <TableColumn fx:id="col_adminPStudentSurname" prefWidth="89.0" text="Surname" />
+                                                   <TableColumn fx:id="col_adminPStudentPhone" prefWidth="121.0" text="Phone number" />
+                                                   <TableColumn fx:id="col_adminPStudentEmail" prefWidth="170.0" text="Email" />
                                                </columns>
                                              </TableView>
-                                             <TextField layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="169.0" promptText="Search" />
-                                             <Button layoutX="124.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" />
-                                             <Label layoutX="336.0" layoutY="13.0" text="Editing Teachers' Info">
+                                             <TextField layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                             <Label layoutX="336.0" layoutY="13.0" text="Editing Students' Info">
                                                 <font>
                                                    <Font name="System Bold Italic" size="18.0" />
                                                 </font>
@@ -197,6 +196,11 @@
                                                    <Image url="@../../../css_images/images.png" />
                                                 </image>
                                              </ImageView>
+                                             <ImageView fitHeight="22.0" fitWidth="25.0" layoutX="101.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                   <Image url="@../../../css_images/images.jpg" />
+                                                </image>
+                                             </ImageView>
                                           </children>
                                        </AnchorPane>
                                        <Label layoutX="28.0" layoutY="261.0" text="Student ID:">
@@ -204,66 +208,75 @@
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="106.0" layoutY="258.0" />
+                                       <TextField fx:id="addStudent_Id" layoutX="106.0" layoutY="258.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="54.0" layoutY="298.0" text="Name:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="106.0" layoutY="295.0" />
+                                       <TextField fx:id="addStudent_Name" layoutX="106.0" layoutY="295.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="36.0" layoutY="333.0" text="Surname:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="106.0" layoutY="330.0" />
+                                       <TextField fx:id="addStudent_Surname" layoutX="106.0" layoutY="330.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="271.0" layoutY="261.0" prefHeight="20.0" prefWidth="104.0" text="Phone number:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="375.0" layoutY="258.0" />
+                                       <TextField fx:id="addStudent_Phone" layoutX="375.0" layoutY="258.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="329.0" layoutY="298.0" prefHeight="20.0" prefWidth="40.0" text="Email:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="375.0" layoutY="295.0" />
-                                       <Button layoutX="290.0" layoutY="371.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" text="Delete">
+                                       <TextField fx:id="addStudent_Email" layoutX="375.0" layoutY="295.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <Button layoutX="238.0" layoutY="379.0" mnemonicParsing="false" onAction="#addStudentDelete" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #e61e8f;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Delete" textFill="WHITE">
                                           <font>
-                                             <Font size="14.0" />
+                                             <Font name="System Bold" size="14.0" />
                                           </font>
                                        </Button>
-                                       <Button layoutX="404.0" layoutY="371.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" text="Add">
+                                       <Button layoutX="440.0" layoutY="379.0" mnemonicParsing="false" onAction="#addStudentAdd" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #51c253;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Add" textFill="WHITE">
                                           <font>
-                                             <Font size="14.0" />
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
+                                       <Button layoutX="134.0" layoutY="379.0" mnemonicParsing="false" onAction="#addStudentReset" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #c2614e;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Clear" textFill="WHITE">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
+                                       <Button layoutX="339.0" layoutY="379.0" mnemonicParsing="false" onAction="#addStudentUpdate" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #32bfa8;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Update" textFill="WHITE">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
                                           </font>
                                        </Button>
                                     </children>
                                  </AnchorPane>
-                                 <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
                                     </styleClass>
                                     <children>
-                                       <AnchorPane prefHeight="227.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css">
+                                       <AnchorPane prefHeight="227.0" prefWidth="589.0" stylesheets="@../../../css_images/design.css">
                                           <styleClass>
                                              <String fx:value="back" />
                                              <String fx:value="shadow" />
                                           </styleClass>
                                           <children>
-                                             <TableView layoutX="7.0" layoutY="54.0" prefHeight="165.0" prefWidth="565.0">
+                                             <TableView layoutX="7.0" layoutY="54.0" prefHeight="165.0" prefWidth="573.0">
                                                 <columns>
                                                    <TableColumn prefWidth="77.0" text="Teacher ID" />
                                                    <TableColumn prefWidth="107.0" text="Name" />
                                                    <TableColumn prefWidth="89.0" text="Surname" />
                                                    <TableColumn prefWidth="121.0" text="Phone number" />
-                                                   <TableColumn prefWidth="170.0" text="Email" />
+                                                   <TableColumn prefWidth="178.0" text="Email" />
                                                 </columns>
                                              </TableView>
-                                             <TextField layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="169.0" promptText="Search" />
-                                             <Button layoutX="124.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" />
+                                             <TextField layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                              <Label layoutX="334.0" layoutY="14.0" text="Editing Teachers' Info">
                                                 <font>
                                                    <Font name="System Bold Italic" size="18.0" />
@@ -274,46 +287,51 @@
                                                    <Image url="@../../../css_images/images.png" />
                                                 </image>
                                              </ImageView>
+                                             <ImageView fitHeight="22.0" fitWidth="19.0" layoutX="104.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                   <Image url="@../../../css_images/images.jpg" />
+                                                </image>
+                                             </ImageView>
                                           </children>
                                        </AnchorPane>
-                                       <Label layoutX="11.0" layoutY="252.0" text="Student ID:">
+                                       <Label layoutX="11.0" layoutY="252.0" text="Teacher ID:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="93.0" layoutY="320.0" />
+                                       <TextField layoutX="93.0" layoutY="320.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="34.0" layoutY="288.0" text="Name:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="93.0" layoutY="285.0" />
+                                       <TextField layoutX="93.0" layoutY="285.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="17.0" layoutY="323.0" text="Surname:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="93.0" layoutY="250.0" />
+                                       <TextField layoutX="93.0" layoutY="250.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="271.0" layoutY="252.0" prefHeight="20.0" prefWidth="104.0" text="Phone number:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="387.0" layoutY="285.0" />
+                                       <TextField layoutX="387.0" layoutY="285.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="330.0" layoutY="288.0" prefHeight="20.0" prefWidth="40.0" text="Email:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="387.0" layoutY="249.0" />
-                                       <Button layoutX="304.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" text="Delete">
+                                       <TextField layoutX="387.0" layoutY="249.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <Button layoutX="304.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #e61e8f;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Delete" textFill="WHITE">
                                           <font>
-                                             <Font size="14.0" />
+                                             <Font name="System Bold" size="14.0" />
                                           </font>
                                        </Button>
-                                       <Button layoutX="431.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" text="Add">
+                                       <Button layoutX="431.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #51c253;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Add" textFill="WHITE">
                                           <font>
-                                             <Font size="14.0" />
+                                             <Font name="Arial Bold" size="14.0" />
                                           </font>
                                        </Button>
                                     </children>

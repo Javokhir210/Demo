@@ -48,7 +48,7 @@
                 <Font name="Arial Bold" size="14.0" />
             </font>
         </Label>
-      <ComboBox accessibleText="a" layoutX="468.0" layoutY="303.0" prefWidth="150.0" promptText="Choose one" />
+      <ComboBox fx:id="login_SignAs" accessibleText="a" layoutX="468.0" layoutY="303.0" prefWidth="150.0" promptText="Choose one" />
       <Label layoutX="468.0" layoutY="269.0" text="Position:">
          <font>
             <Font name="Arial Bold" size="14.0" />
