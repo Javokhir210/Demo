@@ -164,7 +164,7 @@
                                        <String fx:value="shadow" />
                                     </styleClass>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminStudent_page" layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminStudent_page" layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
@@ -255,7 +255,7 @@
                                        </Button>
                                     </children>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
@@ -267,13 +267,13 @@
                                              <String fx:value="shadow" />
                                           </styleClass>
                                           <children>
-                                             <TableView layoutX="7.0" layoutY="54.0" prefHeight="165.0" prefWidth="573.0">
+                                             <TableView fx:id="table_adminTeacher" layoutX="7.0" layoutY="54.0" onMouseClicked="#setAddTeacherSelect" prefHeight="165.0" prefWidth="573.0">
                                                 <columns>
-                                                   <TableColumn prefWidth="77.0" text="Teacher ID" />
-                                                   <TableColumn prefWidth="107.0" text="Name" />
-                                                   <TableColumn prefWidth="89.0" text="Surname" />
-                                                   <TableColumn prefWidth="121.0" text="Phone number" />
-                                                   <TableColumn prefWidth="178.0" text="Email" />
+                                                   <TableColumn fx:id="col_adminPTeacherId" prefWidth="77.0" text="Teacher ID" />
+                                                   <TableColumn fx:id="col_adminPTeacherName" prefWidth="107.0" text="Name" />
+                                                   <TableColumn fx:id="col_adminPTeacherSurname" prefWidth="89.0" text="Surname" />
+                                                   <TableColumn fx:id="col_adminPTeacherPhone" prefWidth="121.0" text="Phone number" />
+                                                   <TableColumn fx:id="col_adminPTeacherEmail" prefWidth="178.0" text="Email" />
                                                 </columns>
                                              </TableView>
                                              <TextField layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
@@ -299,53 +299,53 @@
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="93.0" layoutY="320.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <TextField fx:id="addTeacher_Surname" layoutX="93.0" layoutY="320.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="34.0" layoutY="288.0" text="Name:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="93.0" layoutY="285.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <TextField fx:id="addTeacher_Name" layoutX="93.0" layoutY="285.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="17.0" layoutY="323.0" text="Surname:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="93.0" layoutY="250.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <TextField fx:id="addTeacher_Id" layoutX="93.0" layoutY="250.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="271.0" layoutY="252.0" prefHeight="20.0" prefWidth="104.0" text="Phone number:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="387.0" layoutY="285.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <TextField fx:id="addTeacher_Email" layoutX="387.0" layoutY="285.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                        <Label layoutX="330.0" layoutY="288.0" prefHeight="20.0" prefWidth="40.0" text="Email:">
                                           <font>
                                              <Font size="14.0" />
                                           </font>
                                        </Label>
-                                       <TextField layoutX="387.0" layoutY="249.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <TextField fx:id="addTeacher_Phone" layoutX="387.0" layoutY="249.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                       <Button layoutX="362.0" layoutY="379.0" mnemonicParsing="false" onAction="#addTeacherDelete" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #e61e8f;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Delete" textFill="WHITE">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
+                                       <Button layoutX="466.0" layoutY="379.0" mnemonicParsing="false" onAction="#addTeacherAdd" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #51c253;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Add" textFill="WHITE">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
+                                       <Button layoutX="154.0" layoutY="379.0" mnemonicParsing="false" onAction="#addTeacherReset" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #c2614e;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Clear" textFill="WHITE">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
+                                       <Button layoutX="259.0" layoutY="379.0" mnemonicParsing="false" onAction="#addTeacherUpdate" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #32bfa8;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Update" textFill="WHITE">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                       </Button>
                                     </children>
                                  </AnchorPane>
-                                 <Button layoutX="248.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #e61e8f;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Delete" textFill="WHITE">
-                                    <font>
-                                       <Font name="System Bold" size="14.0" />
-                                    </font>
-                                 </Button>
-                                 <Button layoutX="450.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #51c253;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Add" textFill="WHITE">
-                                    <font>
-                                       <Font name="System Bold" size="14.0" />
-                                    </font>
-                                 </Button>
-                                 <Button layoutX="144.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #c2614e;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Clear" textFill="WHITE">
-                                    <font>
-                                       <Font name="System Bold" size="14.0" />
-                                    </font>
-                                 </Button>
-                                 <Button layoutX="349.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #32bfa8;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Update" textFill="WHITE">
-                                    <font>
-                                       <Font name="System Bold" size="14.0" />
-                                    </font>
-                                 </Button>
                               </children>
                            </AnchorPane>
                         </children>

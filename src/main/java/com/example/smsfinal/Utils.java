@@ -195,4 +195,33 @@ public class Utils {
             e.printStackTrace();
         }return listData;
         }
+
+    public static ObservableList<teacherData> addTeacherListData(){
+
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        ObservableList<teacherData> listData1 = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM teacher";
+
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            teacherData
+
+                    teacherD;
+
+            while (resultSet.next()){
+                teacherD = new teacherData(resultSet.getInt("teacherID"), resultSet.getString("name"),
+                        resultSet.getString("surname"), resultSet.getString("phone"),
+                        resultSet.getString("email"));
+                listData1.add(teacherD);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }return listData1;
+    }
 }

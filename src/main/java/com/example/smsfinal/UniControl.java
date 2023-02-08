@@ -68,6 +68,225 @@ public class UniControl implements Initializable {
     @FXML
     private TableView<studentData> table_adminStudent;
 
+    @FXML
+    private TableColumn<teacherData, String > col_adminPTeacherId;
+
+    @FXML
+    private TableColumn<teacherData, String > col_adminPTeacherName;
+
+    @FXML
+    private TableColumn<teacherData, String > col_adminPTeacherSurname;
+
+    @FXML
+    private TableColumn<teacherData, String > col_adminPTeacherPhone;
+
+    @FXML
+    private TableColumn<teacherData, String > col_adminPTeacherEmail;
+
+    @FXML
+    private TextField addTeacher_Id;
+
+    @FXML
+    private TextField addTeacher_Name;
+
+    @FXML
+    private TextField addTeacher_Surname;
+
+    @FXML
+    private TextField addTeacher_Phone;
+
+    @FXML
+    private TextField addTeacher_Email;
+
+
+    @FXML
+    private TableView<teacherData> table_adminTeacher;
+
+    public void addTeacherAdd(){
+        String sql = "INSERT INTO teacher (teacherID, name, surname, phone, email, password2) VALUES(?,?,?,?,?,?)";
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            if (addTeacher_Id.getText().isEmpty() || addTeacher_Name.getText().isEmpty()
+                    || addTeacher_Surname.getText().isEmpty() || addTeacher_Phone.getText().isEmpty()
+                    || addTeacher_Email.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setContentText("Please, fill in all the fields");
+                alert.showAndWait();
+            }else {
+                connect = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/swingapp", "root", "");
+
+                String check = "SELECT teacherID FROM teacher WHERE teacherID = '" + addTeacher_Id.getText() + "'";
+                Statement statement = connect.createStatement();
+                resultSet = statement.executeQuery(check);
+                if(resultSet.next()){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Message");
+                    alert.setContentText("Teacher ID: " +  addTeacher_Id.getText() + " is already exist");
+                    alert.showAndWait();
+                }else {
+                    preparedStatement = connect.prepareStatement(sql);
+                    preparedStatement.setString(1, addTeacher_Id.getText());
+                    preparedStatement.setString(2, addTeacher_Name.getText());
+                    preparedStatement.setString(3, addTeacher_Surname.getText());
+                    preparedStatement.setString(4, addTeacher_Phone.getText());
+                    preparedStatement.setString(5, addTeacher_Email.getText());
+                    preparedStatement.setString(6, "7274");
+                    preparedStatement.executeUpdate();
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setContentText("Successfully Added");
+                    alert.showAndWait();
+
+                    addTeacherShowList();
+                    addTeacherReset();
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addTeacherUpdate(){
+        String sql = "UPDATE teacher SET name = '" +addTeacher_Name.getText()+ "', surname = '"
+                +addTeacher_Surname.getText() + "', phone = '"+addTeacher_Phone.getText() +"', email = '" +
+                addTeacher_Email.getText() + "' WHERE TeacherID = '"+ addTeacher_Id.getText()+"'";
+
+        Connection connect = null;
+
+
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+
+            if (addTeacher_Id.getText().isEmpty() || addTeacher_Name.getText().isEmpty()
+                    || addTeacher_Surname.getText().isEmpty() || addTeacher_Phone.getText().isEmpty()
+                    || addTeacher_Email.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setContentText("Please, fill in all the fields");
+                alert.showAndWait();
+            }
+//            else if (!addTeacher_Id.getText().isEmpty()){
+//                ResultSet resultSet = null;
+//                String check = "SELECT id FROM users WHERE id = '" + addTeacher_Id.getText() + "'";
+//
+//                Statement statement = connect.createStatement();
+//                resultSet = statement.executeQuery(check);
+//                if(resultSet.next()){
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setTitle("Error Message");
+//                    alert.setContentText("Teacher ID: " +  addTeacher_Id.getText() + " is already exist");
+//                    alert.showAndWait();}
+//            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Message");
+                alert.setContentText("Are you sure");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if (option.get().equals(ButtonType.OK)){
+                    Statement statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setContentText("Successfully Added");
+                    alert.showAndWait();
+
+                    addTeacherShowList();
+                    addTeacherReset();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addTeacherDelete(){
+        String sql = "DELETE FROM teacher WHERE teacherID = '"+ addTeacher_Id.getText() + "'";
+        Connection connect = null;
+        try {
+
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+
+            if (addTeacher_Id.getText().isEmpty() || addTeacher_Name.getText().isEmpty()
+                    || addTeacher_Surname.getText().isEmpty() || addTeacher_Phone.getText().isEmpty()
+                    || addTeacher_Email.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setContentText("Please, fill in all the fields");
+                alert.showAndWait();
+            }else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Message");
+                alert.setContentText("Are you sure");
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if (option.get().equals(ButtonType.OK)){
+                    Statement statement = connect.createStatement();
+                    statement.executeUpdate(sql);
+
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Information Message");
+                    alert.setContentText("Successfully Deleted");
+                    alert.showAndWait();
+
+                    addTeacherShowList();
+                    addTeacherReset();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void addTeacherReset(){
+        addTeacher_Id.setText("");
+        addTeacher_Name.setText("");
+        addTeacher_Surname.setText("");
+        addTeacher_Phone.setText("");
+        addTeacher_Email.setText("");
+    }
+
+
+
+    public void setAddTeacherSelect(){
+        teacherData teacherD = table_adminTeacher.getSelectionModel().getSelectedItem();
+        int num = table_adminTeacher.getSelectionModel().getSelectedIndex();
+
+        if ((num - 1) < -1)return;
+
+        addTeacher_Id.setText(String.valueOf(teacherD.getStudentId()));
+        addTeacher_Name.setText(String.valueOf(teacherD.getF1Name()));
+        addTeacher_Surname.setText(String.valueOf(teacherD.getS1Name()));
+        addTeacher_Phone.setText(String.valueOf(teacherD.getStudentPhone()));
+        addTeacher_Email.setText(String.valueOf(teacherD.getStudentEmail()));
+    }
+
+    private ObservableList<teacherData> addTeacherList;
+
+    public void addTeacherShowList(){
+        addTeacherList = Utils.addTeacherListData();
+
+        col_adminPTeacherId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        col_adminPTeacherName.setCellValueFactory(new PropertyValueFactory<>("f1Name"));
+        col_adminPTeacherSurname.setCellValueFactory(new PropertyValueFactory<>("s1Name"));
+        col_adminPTeacherPhone.setCellValueFactory(new PropertyValueFactory<>("studentPhone"));
+        col_adminPTeacherEmail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
+
+        table_adminTeacher.setItems(addTeacherList);
+    }
+
     public void addStudentAdd(){
         String sql = "INSERT INTO users (id, name, surname, phone, email, password1) VALUES(?,?,?,?,?,?)";
         Connection connect = null;
@@ -127,6 +346,7 @@ public class UniControl implements Initializable {
                 addStudent_Email.getText() + "' WHERE id = '"+ addStudent_Id.getText()+"'";
 
         Connection connect = null;
+        ResultSet resultSet = null;
 
 
         try {
@@ -140,7 +360,19 @@ public class UniControl implements Initializable {
                 alert.setTitle("Error Message");
                 alert.setContentText("Please, fill in all the fields");
                 alert.showAndWait();
-            }else {
+            }
+//            else if (!addStudent_Id.getText().isEmpty()){
+//                String check = "SELECT id FROM users WHERE id = '" + addStudent_Id.getText() + "'";
+//
+//                Statement statement = connect.createStatement();
+//                resultSet = statement.executeQuery(check);
+//                if(resultSet.next()){
+//                    Alert alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setTitle("Error Message");
+//                    alert.setContentText("Student ID: " +  addStudent_Id.getText() + " is already exist");
+//                    alert.showAndWait();}
+//            }
+            else {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Message");
                 alert.setContentText("Are you sure");
@@ -280,5 +512,6 @@ public class UniControl implements Initializable {
         });
 
         addStudentShowList();
+        addTeacherShowList();
     }
 }
