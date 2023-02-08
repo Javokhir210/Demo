@@ -16,6 +16,47 @@
 -fx-background-radius:5px;
 }
 
+.login-bg{
+    -fx-background-color:linear-gradient(to bottom right, #273573, #662d60);
+}
+
+.exit {
+    -fx-background-color:#c22c40;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+.exit:hover{
+    -fx-background-color:#f15b72
+}
+.textfield-design{
+    -fx-background-color:transparent;
+    -fx-background-radius:10px;
+    -fx-border-color: linear-gradient(to bottom right, #2f466b, #662d60);
+    -fx-border-radius:10px;
+    -fx-text-inner-color:#000;
+}
+.button-design{
+    -fx-background-color:linear-gradient(to bottom right, #273573, #662d60);
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+.student-home{
+    -fx-background-color:linear-gradient(to bottom right, #3C84AB, #1F8A70);
+}
+.navigation-btn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+    -fx-text-fill:#fff;
+    -fx-font-size:14px;
+    -fx-font-family:"Arial";
+    -fx-alignment:CENTER-LEFT;
+}
+.btnOut{
+    -fx-background-color:#2c84bf;
+    -fx-cursor:hand;
+
+}
+
 .table-view{
 -fx-background-color: transparent;
 -fx-border-color:linear-gradient(to bottom right, #273573, #637ae6);
