@@ -1,84 +1,61 @@
 package com.example.smsfinal;
 
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
-import java.net.URL;
 import java.sql.*;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
-public class UniControl implements Initializable {
-
-    @FXML
-    private Button btn_AdminHome;
+public class teacherControl {
 
     @FXML
-    private Button btn_AdminStudent;
+    private TableColumn<studentData, String > col_adminPTeacherId;
 
     @FXML
-    private Button btn_AdminTeacher;
+    private TableColumn<studentData, String > col_adminPTeacherName;
 
     @FXML
-    private AnchorPane AdminHome_page;
+    private TableColumn<studentData, String > col_adminPTeacherSurname;
 
     @FXML
-    private AnchorPane AdminStudent_page;
+    private TableColumn<studentData, String > col_adminPTeacherPhone;
 
     @FXML
-    private AnchorPane AdminTeacher_page;
+    private TableColumn<studentData, String > col_adminPTeacherEmail;
 
     @FXML
-    private TableColumn<studentData, String > col_adminPStudentId;
+    private TextField addTeacher_Id;
 
     @FXML
-    private TableColumn<studentData, String > col_adminPStudentName;
+    private TextField addTeacher_Name;
 
     @FXML
-    private TableColumn<studentData, String > col_adminPStudentSurname;
+    private TextField addTeacher_Surname;
 
     @FXML
-    private TableColumn<studentData, String > col_adminPStudentPhone;
+    private TextField addTeacher_Phone;
 
     @FXML
-    private TableColumn<studentData, String > col_adminPStudentEmail;
-
-    @FXML
-    private TextField addStudent_Id;
-
-    @FXML
-    private TextField addStudent_Name;
-
-    @FXML
-    private TextField addStudent_Surname;
-
-    @FXML
-    private TextField addStudent_Phone;
-
-    @FXML
-    private TextField addStudent_Email;
+    private TextField addTeacher_Email;
 
 
     @FXML
-    private TableView<studentData> table_adminStudent;
+    private TableView<studentData> table_adminTeacher;
 
-    public void addStudentAdd(){
-        String sql = "INSERT INTO users (id, name, surname, phone, email, password1) VALUES(?,?,?,?,?,?)";
+    public void addTeacherAdd(){
+        String sql = "INSERT INTO teachers (teacherID, name, surname, phone, email, password2) VALUES(?,?,?,?,?,?)";
         Connection connect = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
 
         try {
 
-            if (addStudent_Id.getText().isEmpty() || addStudent_Name.getText().isEmpty()
-            || addStudent_Surname.getText().isEmpty() || addStudent_Phone.getText().isEmpty()
-            || addStudent_Email.getText().isEmpty()){
+            if (addTeacher_Id.getText().isEmpty() || addTeacher_Name.getText().isEmpty()
+                    || addTeacher_Surname.getText().isEmpty() || addTeacher_Phone.getText().isEmpty()
+                    || addTeacher_Email.getText().isEmpty()){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setContentText("Please, fill in all the fields");
@@ -87,22 +64,22 @@ public class UniControl implements Initializable {
                 connect = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/swingapp", "root", "");
 
-                String check = "SELECT id FROM users WHERE id = '" + addStudent_Id.getText() + "'";
+                String check = "SELECT teacherID FROM teachers WHERE teacherID = '" + addTeacher_Id.getText() + "'";
                 Statement statement = connect.createStatement();
                 resultSet = statement.executeQuery(check);
                 if(resultSet.next()){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Message");
-                    alert.setContentText("Student ID: " +  addStudent_Id.getText() + " is already exist");
+                    alert.setContentText("Student ID: " +  addTeacher_Id.getText() + " is already exist");
                     alert.showAndWait();
                 }else {
                     preparedStatement = connect.prepareStatement(sql);
-                    preparedStatement.setString(1, addStudent_Id.getText());
-                    preparedStatement.setString(2, addStudent_Name.getText());
-                    preparedStatement.setString(3, addStudent_Surname.getText());
-                    preparedStatement.setString(4, addStudent_Phone.getText());
-                    preparedStatement.setString(5, addStudent_Email.getText());
-                    preparedStatement.setString(6, "123456");
+                    preparedStatement.setString(1, addTeacher_Id.getText());
+                    preparedStatement.setString(2, addTeacher_Name.getText());
+                    preparedStatement.setString(3, addTeacher_Surname.getText());
+                    preparedStatement.setString(4, addTeacher_Phone.getText());
+                    preparedStatement.setString(5, addTeacher_Email.getText());
+                    preparedStatement.setString(6, "7274");
                     preparedStatement.executeUpdate();
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -122,9 +99,9 @@ public class UniControl implements Initializable {
     }
 
     public void addStudentUpdate(){
-        String sql = "UPDATE users SET name = '" +addStudent_Name.getText()+ "', surname = '"
-                +addStudent_Surname.getText() + "', phone = '"+addStudent_Phone.getText() +"', email = '" +
-                addStudent_Email.getText() + "' WHERE id = '"+ addStudent_Id.getText()+"'";
+        String sql = "UPDATE users SET name = '" +addTeacher_Name.getText()+ "', surname = '"
+                +addTeacher_Surname.getText() + "', phone = '"+addTeacher_Phone.getText() +"', email = '" +
+                addTeacher_Email.getText() + "' WHERE id = '"+ addTeacher_Id.getText()+"'";
 
         Connection connect = null;
 
@@ -133,7 +110,7 @@ public class UniControl implements Initializable {
             connect = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/swingapp", "root", "");
 
-            if (addStudent_Id.getText().isEmpty() || addStudent_Name.getText().isEmpty()
+            if (addTeacher_Id.getText().isEmpty() || addStudent_Name.getText().isEmpty()
                     || addStudent_Surname.getText().isEmpty() || addStudent_Phone.getText().isEmpty()
                     || addStudent_Email.getText().isEmpty()){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -240,45 +217,4 @@ public class UniControl implements Initializable {
         table_adminStudent.setItems(addStudentList);
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        btn_AdminHome.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Utils.AdminSceneOn(event, AdminHome_page);
-                Utils.AdminSceneOf(event, AdminStudent_page);
-                Utils.AdminSceneOf(event, AdminTeacher_page);
-                btn_AdminHome.setStyle("-fx-background-color:linear-gradient(to bottom right,#121d4a, #8597ed)");
-                btn_AdminStudent.setStyle("-fx-background-color:transparent");
-                btn_AdminTeacher.setStyle("-fx-background-color:transparent");
-            }
-        });
-
-        btn_AdminStudent.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Utils.AdminSceneOf(event, AdminHome_page);
-                Utils.AdminSceneOn(event, AdminStudent_page);
-                Utils.AdminSceneOf(event, AdminTeacher_page);
-                btn_AdminStudent.setStyle("-fx-background-color:linear-gradient(to bottom right,#121d4a, #8597ed)");
-                btn_AdminHome.setStyle("-fx-background-color:transparent");
-                btn_AdminTeacher.setStyle("-fx-background-color:transparent");
-            }
-        });
-
-        btn_AdminTeacher.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Utils.AdminSceneOf(event, AdminHome_page);
-                Utils.AdminSceneOf(event, AdminStudent_page);
-                Utils.AdminSceneOn(event, AdminTeacher_page);
-                btn_AdminTeacher.setStyle("-fx-background-color:linear-gradient(to bottom right,#121d4a, #8597ed)");
-                btn_AdminStudent.setStyle("-fx-background-color:transparent");
-                btn_AdminHome.setStyle("-fx-background-color:transparent");
-            }
-        });
-
-        addStudentShowList();
-    }
 }
