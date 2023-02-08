@@ -1,91 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="770.0" style="-fx-background-color: #87e2e6;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.regControl">
+<AnchorPane prefHeight="500.0" prefWidth="770.0" style="-fx-background-color: #87e2e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.regControl">
     <children>
-        <Label layoutX="259.0" layoutY="14.0" text="Registration page">
-            <font>
-                <Font name="Algerian" size="30.0" />
-            </font>
-        </Label>
-        <TextField fx:id="tf_regname" layoutX="330.0" layoutY="88.0" promptText="ex: Jony" />
-        <Label layoutX="209.0" layoutY="92.0" text="First name:">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="208.0" layoutY="135.0" text="Last name: ">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <TextField fx:id="tf_regsurname" layoutX="330.0" layoutY="131.0" promptText="ex: English" />
-        <Label layoutX="241.0" layoutY="173.0" text="Email:">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="180.0" layoutY="215.0" text="Phone number:">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="158.0" layoutY="296.0" text="Confirm password:">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="190.0" layoutY="253.0" text="Set password:">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <TextField fx:id="tf_regemail" layoutX="330.0" layoutY="170.0" promptText="ex: aaaaa.gmail.com" />
-        <TextField fx:id="tf_regnumber" layoutX="330.0" layoutY="212.0" promptText="ex: +998 90 1234567" />
-        <Button fx:id="bt_Register" layoutX="330.0" layoutY="348.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="92.0" text="Register">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Button>
-        <PasswordField fx:id="tf_regPassword" layoutX="329.0" layoutY="250.0" />
-        <PasswordField fx:id="tf_regConfirmPassword" layoutX="329.0" layoutY="293.0" />
-        <Button fx:id="btLogGo" layoutX="405.0" layoutY="387.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #87e2e6;" text="Log in!" textFill="#b51414">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Button>
-        <Label layoutX="279.0" layoutY="391.0" prefHeight="20.0" prefWidth="140.0" text="Have an account?">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Text fill="#f20a0a" layoutX="285.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Text>
-        <Text fill="#f20a0a" layoutX="285.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Text>
-        <Text fill="#f20a0a" layoutX="285.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Text>
-        <Text fill="#f20a0a" layoutX="285.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Text>
-        <Text fill="#f20a0a" layoutX="285.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
-            <font>
-                <Font name="Arial Bold" size="18.0" />
-            </font>
-        </Text>
+      <GridPane layoutX="488.0" layoutY="138.0" prefHeight="500.0" prefWidth="770.0" styleClass="login-bg" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+               <children>
+                    <Label layoutX="68.0" layoutY="71.0" text="Registration " textFill="#5d19b5">
+                        <font>
+                            <Font name="Berlin Sans FB" size="48.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="tf_regname" layoutX="101.0" layoutY="143.0" prefHeight="38.0" prefWidth="182.0" promptText="Username" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                    <TextField fx:id="tf_regsurname" layoutX="101.0" layoutY="191.0" prefHeight="38.0" prefWidth="182.0" promptText="Surname" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                    <TextField fx:id="tf_regemail" layoutX="101.0" layoutY="288.0" prefHeight="38.0" prefWidth="182.0" promptText="Email" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                    <TextField fx:id="tf_regnumber" layoutX="101.0" layoutY="240.0" prefHeight="38.0" prefWidth="182.0" promptText="Number" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                    <Button fx:id="bt_Register" layoutX="154.0" layoutY="432.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="75.0" styleClass="button-design" stylesheets="@../../../css_images/design.css" text="Register" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="13.0" />
+                        </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                    </Button>
+                    <PasswordField fx:id="tf_regPassword" layoutX="101.0" layoutY="381.0" prefHeight="38.0" prefWidth="182.0" promptText="Confirmation Password" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                    <PasswordField fx:id="tf_regConfirmPassword" layoutX="101.0" layoutY="335.0" prefHeight="38.0" prefWidth="182.0" promptText="Pssword" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                    <Button fx:id="btLogGo" layoutX="101.0" layoutY="471.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="182.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Log in to your Account" textFill="#10bbd9">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                    </Button>
+                    <Text fill="#f20a0a" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#f20a0a" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#f20a0a" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#f20a0a" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#f20a0a" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                        <font>
+                            <Font name="Arial Bold" size="18.0" />
+                        </font>
+                    </Text>
+                  <ImageView fitHeight="80.0" fitWidth="108.0" layoutX="153.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../css_images/icons8-add-user-male-64.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="93.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                     <image>
+                        <Image url="@../../../css_images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
     </children>
 </AnchorPane>
