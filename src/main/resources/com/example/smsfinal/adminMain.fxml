@@ -255,7 +255,7 @@
                                        </Button>
                                     </children>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
@@ -324,18 +324,28 @@
                                           </font>
                                        </Label>
                                        <TextField layoutX="387.0" layoutY="249.0" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
-                                       <Button layoutX="304.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #e61e8f;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Delete" textFill="WHITE">
-                                          <font>
-                                             <Font name="System Bold" size="14.0" />
-                                          </font>
-                                       </Button>
-                                       <Button layoutX="431.0" layoutY="382.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #51c253;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Add" textFill="WHITE">
-                                          <font>
-                                             <Font name="Arial Bold" size="14.0" />
-                                          </font>
-                                       </Button>
                                     </children>
                                  </AnchorPane>
+                                 <Button layoutX="248.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #e61e8f;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Delete" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                 </Button>
+                                 <Button layoutX="450.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #51c253;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Add" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                 </Button>
+                                 <Button layoutX="144.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #c2614e;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Clear" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                 </Button>
+                                 <Button layoutX="349.0" layoutY="389.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #32bfa8;" styleClass="textfield" stylesheets="@../../../css_images/design.css" text="Update" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                 </Button>
                               </children>
                            </AnchorPane>
                         </children>
