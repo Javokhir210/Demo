@@ -56,6 +56,13 @@
     -fx-cursor:hand;
 
 }
+.selection{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.5), 6,0,0,0);
+    -fx-cursor:hand;
+    -fx-background-radius: 20px;
+    -fx-background-color:linear-gradient(to right top, #662d60,#273573);
+    -fx-color: #325243
+}
 
 .table-view{
 -fx-background-color: transparent;
