@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.String?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -113,9 +112,9 @@
                                                          <Font name="System Bold" size="12.0" />
                                                       </font>
                                                    </Label>
-                                                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="15.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
+                                                   <Label fx:id="homeTotalStudent" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="15.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
                                                       <font>
-                                                         <Font name="System Bold" size="12.0" />
+                                                         <Font name="System Bold" size="14.0" />
                                                       </font>
                                                    </Label>
                                                 </children>
@@ -127,9 +126,9 @@
                                                          <Font name="System Bold" size="12.0" />
                                                       </font>
                                                    </Label>
-                                                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="130.0" layoutY="13.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
+                                                   <Label fx:id="homeTotalTeacher" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="130.0" layoutY="13.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
                                                       <font>
-                                                         <Font name="System Bold" size="12.0" />
+                                                         <Font name="System Bold" size="14.0" />
                                                       </font>
                                                    </Label>
                                                    <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
@@ -255,7 +254,7 @@
                                        </Button>
                                     </children>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />

@@ -15,6 +15,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 public class UniControl implements Initializable {
 
@@ -109,6 +110,60 @@ public class UniControl implements Initializable {
 
     @FXML
     private TextField adminTeacherSearch;
+
+    @FXML
+    private Label homeTotalStudent;
+
+    @FXML
+    private Label homeTotalTeacher;
+
+    public void totalTeachers(){
+        String sql = "SELECT COUNT(teacherID) FROM teacher";
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int countData = 0;
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                countData = resultSet.getInt("COUNT(teacherID)");
+            }
+
+            homeTotalTeacher.setText(String.valueOf(countData));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void totalStudents(){
+        String sql = "SELECT COUNT(id) FROM users";
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int countData = 0;
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                countData = resultSet.getInt("COUNT(id)");
+            }
+
+            homeTotalStudent.setText(String.valueOf(countData));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void AdminTeacherSearch1(){
         FilteredList<teacherData> filter = new FilteredList<>(addTeacherList, e-> true);
@@ -593,6 +648,8 @@ public class UniControl implements Initializable {
         addTeacherShowList();
         AdminStudentSearch1();
         AdminTeacherSearch1();
+        totalStudents();
+        totalTeachers();
 
     }
 }
