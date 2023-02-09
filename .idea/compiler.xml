@@ -9,8 +9,13 @@
         <module name="SMSFinal" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SMSFinal" target="0" />
+    <bytecodeTargetLevel target="9">
+      <module name="SMSFinal" target="9" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SMSFinal" options="--add-exports java.xml/com.sun.org.apache.xpath.internal.compiler=com.example.smsfinal" />
+    </option>
   </component>
 </project>

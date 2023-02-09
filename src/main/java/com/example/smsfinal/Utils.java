@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Objects;
 import java.util.Properties;
 
 public class Utils {
@@ -34,14 +35,47 @@ public class Utils {
         stage.show();
     }
     public static void LogInUser(ActionEvent event, String username, String password, String LoginAs){
+        if (LoginAs == null){
+            LoginAs = "";
+        }
         Connection connection = null;
         PreparedStatement psCheck = null;
         ResultSet resultSet = null;
+        String page1 = "";
+        String passwordKey = "";
 
         try {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/swingapp", "root", "");
-            psCheck = connection.prepareStatement("SELECT password1 FROM users WHERE name = ?");
+
+            if (LoginAs.equals("")){
+                System.out.println("Fill in all the fields!");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Fill in all the fields!");
+                alert.show();
+            }
+
+            else if (Objects.equals(LoginAs, "Admin")){
+                psCheck = connection.prepareStatement("SELECT password FROM admin WHERE email = ?");
+                page1 = "adminMain.fxml";
+                passwordKey = "password";
+            }
+
+            else if (Objects.equals(LoginAs, "Student")) {
+                psCheck = connection.prepareStatement("SELECT password1 FROM users WHERE name = ?");
+                page1 = "studentPage.fxml";
+                passwordKey = "password1";
+            }
+
+            else if (Objects.equals(LoginAs, "Teacher")) {
+                psCheck = connection.prepareStatement("SELECT password2 FROM teacher WHERE name = ?");
+                page1 = "teacherPage.fxml";
+                passwordKey = "password2";
+            }
+//            else {
+//                psCheck = connection.prepareStatement("SELECT password FROM admin WHERE email = ?");
+//            }
+//
             psCheck.setString(1, username);
             resultSet = psCheck.executeQuery();
 
@@ -55,10 +89,10 @@ public class Utils {
 
                     getData.username = username;
 
-                    String basePass = resultSet.getString("password1");
+                    String basePass = resultSet.getString(passwordKey);
 
                     if (basePass.equals(password)){
-                        changePage(event, "adminMain.fxml", "Menu");
+                        changePage(event, page1, "Menu!");
                     }else {
                         System.out.println("Password is incorrect");
                         Alert alert = new Alert(Alert.AlertType.ERROR);

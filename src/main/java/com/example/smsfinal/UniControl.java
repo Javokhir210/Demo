@@ -1,6 +1,8 @@
 package com.example.smsfinal;
 
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -101,6 +103,38 @@ public class UniControl implements Initializable {
 
     @FXML
     private TableView<teacherData> table_adminTeacher;
+
+    @FXML
+    private TextField adminStudent_Search;
+
+    public void AdminStudentSearch(){
+        FilteredList<studentData> filter = new FilteredList<>(addStudentList, e-> true);
+        adminStudent_Search.textProperty().addListener((Observable, oldValue, newValue) ->{
+            filter.setPredicate(predicateStudentData ->{
+                String Id = Integer.toString(predicateStudentData.getStudentId());
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String searchKey = newValue.toLowerCase();
+
+                if (Id.contains(searchKey)){
+                    return true;
+                }else if (predicateStudentData.getF1Name().toLowerCase().contains(searchKey)){
+                    return true;
+                }else if (predicateStudentData.getS1Name().toLowerCase().contains(searchKey)){
+                    return true;
+                }else if (predicateStudentData.getStudentEmail().toLowerCase().contains(searchKey)){
+                    return true;
+                }else if (predicateStudentData.getStudentPhone().toLowerCase().contains(searchKey)){
+                    return true;
+                }else return false;
+            });
+        });
+
+        SortedList<studentData> sortedList = new SortedList<>(filter);
+        sortedList.comparatorProperty().bind(table_adminStudent.comparatorProperty());
+        table_adminStudent.setItems(sortedList);
+    }
 
     public void addTeacherAdd(){
         String sql = "INSERT INTO teacher (teacherID, name, surname, phone, email, password2) VALUES(?,?,?,?,?,?)";
@@ -513,5 +547,6 @@ public class UniControl implements Initializable {
 
         addStudentShowList();
         addTeacherShowList();
+        AdminStudentSearch();
     }
 }
