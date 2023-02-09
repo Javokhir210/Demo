@@ -107,11 +107,14 @@ public class UniControl implements Initializable {
     @FXML
     private TextField adminStudent_Search;
 
-    public void AdminStudentSearch(){
-        FilteredList<studentData> filter = new FilteredList<>(addStudentList, e-> true);
-        adminStudent_Search.textProperty().addListener((Observable, oldValue, newValue) ->{
-            filter.setPredicate(predicateStudentData ->{
-                String Id = Integer.toString(predicateStudentData.getStudentId());
+    @FXML
+    private TextField adminTeacherSearch;
+
+    public void AdminTeacherSearch1(){
+        FilteredList<teacherData> filter = new FilteredList<>(addTeacherList, e-> true);
+        adminTeacherSearch.textProperty().addListener((Observable, oldValue, newValue) -> {
+            filter.setPredicate(predicateTeacherData ->{
+                String Id = Integer.toString(predicateTeacherData.getStudentId());
                 if (newValue == null || newValue.isEmpty()){
                     return true;
                 }
@@ -119,17 +122,44 @@ public class UniControl implements Initializable {
 
                 if (Id.contains(searchKey)){
                     return true;
-                }else if (predicateStudentData.getF1Name().toLowerCase().contains(searchKey)){
+                }else if (predicateTeacherData.getF1Name().toLowerCase().contains(searchKey)){
                     return true;
-                }else if (predicateStudentData.getS1Name().toLowerCase().contains(searchKey)){
+                }else if (predicateTeacherData.getS1Name().toLowerCase().contains(searchKey)){
                     return true;
-                }else if (predicateStudentData.getStudentEmail().toLowerCase().contains(searchKey)){
+                }else if (predicateTeacherData.getStudentEmail().toLowerCase().contains(searchKey)){
                     return true;
-                }else if (predicateStudentData.getStudentPhone().toLowerCase().contains(searchKey)){
+                }else if (predicateTeacherData.getStudentPhone().toLowerCase().contains(searchKey)){
                     return true;
                 }else return false;
             });
         });
+
+        SortedList<teacherData> sortedList = new SortedList<>(filter);
+        sortedList.comparatorProperty().bind(table_adminTeacher.comparatorProperty());
+        table_adminTeacher.setItems(sortedList);
+    }
+
+    public void AdminStudentSearch1(){
+        FilteredList<studentData> filter = new FilteredList<>(addStudentList, e-> true);
+        adminStudent_Search.textProperty().addListener((Observable, oldValue, newValue) -> filter.setPredicate(predicateStudentData ->{
+            String Id = Integer.toString(predicateStudentData.getStudentId());
+            if (newValue == null || newValue.isEmpty()){
+                return true;
+            }
+            String searchKey = newValue.toLowerCase();
+
+            if (Id.contains(searchKey)){
+                return true;
+            }else if (predicateStudentData.getF1Name().toLowerCase().contains(searchKey)){
+                return true;
+            }else if (predicateStudentData.getS1Name().toLowerCase().contains(searchKey)){
+                return true;
+            }else if (predicateStudentData.getStudentEmail().toLowerCase().contains(searchKey)){
+                return true;
+            }else if (predicateStudentData.getStudentPhone().toLowerCase().contains(searchKey)){
+                return true;
+            }else return false;
+        }));
 
         SortedList<studentData> sortedList = new SortedList<>(filter);
         sortedList.comparatorProperty().bind(table_adminStudent.comparatorProperty());
@@ -180,6 +210,7 @@ public class UniControl implements Initializable {
 
                     addTeacherShowList();
                     addTeacherReset();
+                    AdminTeacherSearch1();
 
                 }
             }
@@ -238,6 +269,7 @@ public class UniControl implements Initializable {
 
                     addTeacherShowList();
                     addTeacherReset();
+                    AdminTeacherSearch1();
                 }
             }
         }catch (Exception e){
@@ -277,6 +309,7 @@ public class UniControl implements Initializable {
 
                     addTeacherShowList();
                     addTeacherReset();
+                    AdminTeacherSearch1();
                 }
             }
         }catch (Exception e){
@@ -290,6 +323,7 @@ public class UniControl implements Initializable {
         addTeacher_Surname.setText("");
         addTeacher_Phone.setText("");
         addTeacher_Email.setText("");
+        AdminTeacherSearch1();
     }
 
 
@@ -305,6 +339,7 @@ public class UniControl implements Initializable {
         addTeacher_Surname.setText(String.valueOf(teacherD.getS1Name()));
         addTeacher_Phone.setText(String.valueOf(teacherD.getStudentPhone()));
         addTeacher_Email.setText(String.valueOf(teacherD.getStudentEmail()));
+        AdminTeacherSearch1();
     }
 
     private ObservableList<teacherData> addTeacherList;
@@ -319,6 +354,7 @@ public class UniControl implements Initializable {
         col_adminPTeacherEmail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
 
         table_adminTeacher.setItems(addTeacherList);
+        AdminTeacherSearch1();
     }
 
     public void addStudentAdd(){
@@ -365,6 +401,7 @@ public class UniControl implements Initializable {
 
                     addStudentShowList();
                     addStudentReset();
+                    AdminStudentSearch1();
 
                 }
             }
@@ -423,6 +460,7 @@ public class UniControl implements Initializable {
 
                     addStudentShowList();
                     addStudentReset();
+                    AdminStudentSearch1();
                 }
             }
         }catch (Exception e){
@@ -462,6 +500,7 @@ public class UniControl implements Initializable {
 
                     addStudentShowList();
                     addStudentReset();
+                    AdminStudentSearch1();
                 }
             }
         }catch (Exception e){
@@ -475,6 +514,7 @@ public class UniControl implements Initializable {
         addStudent_Surname.setText("");
         addStudent_Phone.setText("");
         addStudent_Email.setText("");
+        AdminStudentSearch1();
     }
 
 
@@ -490,6 +530,7 @@ public class UniControl implements Initializable {
         addStudent_Surname.setText(String.valueOf(studentD.getS1Name()));
         addStudent_Phone.setText(String.valueOf(studentD.getStudentPhone()));
         addStudent_Email.setText(String.valueOf(studentD.getStudentEmail()));
+        AdminStudentSearch1();
     }
 
     private ObservableList<studentData> addStudentList;
@@ -504,6 +545,8 @@ public class UniControl implements Initializable {
         col_adminPStudentEmail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
 
         table_adminStudent.setItems(addStudentList);
+        AdminStudentSearch1();
+
     }
 
 
@@ -542,11 +585,14 @@ public class UniControl implements Initializable {
                 btn_AdminTeacher.setStyle("-fx-background-color:linear-gradient(to bottom right,#121d4a, #8597ed)");
                 btn_AdminStudent.setStyle("-fx-background-color:transparent");
                 btn_AdminHome.setStyle("-fx-background-color:transparent");
+
             }
         });
 
         addStudentShowList();
         addTeacherShowList();
-//        AdminStudentSearch();
+        AdminStudentSearch1();
+        AdminTeacherSearch1();
+
     }
 }

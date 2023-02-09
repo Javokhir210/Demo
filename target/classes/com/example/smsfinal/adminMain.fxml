@@ -164,7 +164,7 @@
                                        <String fx:value="shadow" />
                                     </styleClass>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminStudent_page" layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminStudent_page" layoutX="14.0" layoutY="14.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
@@ -185,7 +185,7 @@
                                                    <TableColumn fx:id="col_adminPStudentEmail" prefWidth="170.0" text="Email" />
                                                </columns>
                                              </TableView>
-                                             <TextField fx:id="adminStudent_Search" layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                             <TextField fx:id="adminStudent_Search" layoutX="7.0" layoutY="14.0" onKeyTyped="#AdminStudentSearch1" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                              <Label layoutX="336.0" layoutY="13.0" text="Editing Students' Info">
                                                 <font>
                                                    <Font name="System Bold Italic" size="18.0" />
@@ -255,7 +255,7 @@
                                        </Button>
                                     </children>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
@@ -276,7 +276,7 @@
                                                    <TableColumn fx:id="col_adminPTeacherEmail" prefWidth="178.0" text="Email" />
                                                 </columns>
                                              </TableView>
-                                             <TextField layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                             <TextField fx:id="adminTeacherSearch" layoutX="7.0" layoutY="14.0" onKeyTyped="#AdminTeacherSearch1" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                              <Label layoutX="334.0" layoutY="14.0" text="Editing Teachers' Info">
                                                 <font>
                                                    <Font name="System Bold Italic" size="18.0" />
