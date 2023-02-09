@@ -9,8 +9,8 @@
         <module name="SMSFinal" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="9">
-      <module name="SMSFinal" target="9" />
+    <bytecodeTargetLevel target="11">
+      <module name="SMSFinal" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -185,7 +185,7 @@
                                                    <TableColumn fx:id="col_adminPStudentEmail" prefWidth="170.0" text="Email" />
                                                </columns>
                                              </TableView>
-                                             <TextField fx:id="adminStudent_Search" layoutX="7.0" layoutY="14.0" onKeyTyped="#AdminStudentSearch" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
+                                             <TextField fx:id="adminStudent_Search" layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="118.0" promptText="Search" styleClass="textfield" stylesheets="@../../../css_images/design.css" />
                                              <Label layoutX="336.0" layoutY="13.0" text="Editing Students' Info">
                                                 <font>
                                                    <Font name="System Bold Italic" size="18.0" />

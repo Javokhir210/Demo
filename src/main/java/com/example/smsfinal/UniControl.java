@@ -547,6 +547,6 @@ public class UniControl implements Initializable {
 
         addStudentShowList();
         addTeacherShowList();
-        AdminStudentSearch();
+//        AdminStudentSearch();
     }
 }
