@@ -54,6 +54,8 @@ public class logControl implements Initializable {
         btLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                studentData getData = studentData.getInstance();
+                getData.setStudentPage(tfLogName.getText());
                 Utils.LogInUser(event, tfLogName.getText(), tfLogPass.getText(), (String) login_SignAs.getSelectionModel().getSelectedItem());
             }
         });

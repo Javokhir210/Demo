@@ -1,5 +1,6 @@
 package com.example.smsfinal;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -117,6 +118,33 @@ public class UniControl implements Initializable {
     @FXML
     private Label homeTotalTeacher;
 
+    @FXML
+    private Label homeTotalCourses;
+
+
+    public void totalCourses(){
+        String sql = "SELECT COUNT(number) FROM courses";
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int countData = 0;
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                countData = resultSet.getInt("COUNT(number)");
+            }
+
+            homeTotalCourses.setText(String.valueOf(countData));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void totalTeachers(){
         String sql = "SELECT COUNT(teacherID) FROM teacher";
         Connection connect = null;
@@ -166,6 +194,7 @@ public class UniControl implements Initializable {
 
 
     public void AdminTeacherSearch1(){
+        addTeacherList = Utils.addTeacherListData();
         FilteredList<teacherData> filter = new FilteredList<>(addTeacherList, e-> true);
         adminTeacherSearch.textProperty().addListener((Observable, oldValue, newValue) -> {
             filter.setPredicate(predicateTeacherData ->{
@@ -276,6 +305,7 @@ public class UniControl implements Initializable {
     }
 
     public void addTeacherUpdate(){
+        AdminTeacherSearch1();
         String sql = "UPDATE teacher SET name = '" +addTeacher_Name.getText()+ "', surname = '"
                 +addTeacher_Surname.getText() + "', phone = '"+addTeacher_Phone.getText() +"', email = '" +
                 addTeacher_Email.getText() + "' WHERE TeacherID = '"+ addTeacher_Id.getText()+"'";
@@ -397,7 +427,7 @@ public class UniControl implements Initializable {
         AdminTeacherSearch1();
     }
 
-    private ObservableList<teacherData> addTeacherList;
+    private ObservableList<teacherData> addTeacherList = FXCollections.observableArrayList();
 
     public void addTeacherShowList(){
         addTeacherList = Utils.addTeacherListData();
@@ -410,6 +440,7 @@ public class UniControl implements Initializable {
 
         table_adminTeacher.setItems(addTeacherList);
         AdminTeacherSearch1();
+
     }
 
     public void addStudentAdd(){
@@ -472,8 +503,6 @@ public class UniControl implements Initializable {
                 addStudent_Email.getText() + "' WHERE id = '"+ addStudent_Id.getText()+"'";
 
         Connection connect = null;
-        ResultSet resultSet = null;
-
 
         try {
             connect = DriverManager.getConnection(
@@ -650,6 +679,7 @@ public class UniControl implements Initializable {
         AdminTeacherSearch1();
         totalStudents();
         totalTeachers();
+        totalCourses();
 
     }
 }

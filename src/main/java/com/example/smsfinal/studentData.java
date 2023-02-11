@@ -2,11 +2,24 @@ package com.example.smsfinal;
 
 public class studentData {
 
+    private String StudentPage = "";
+
+
     private int studentId;
     private String f1Name;
     private String s1Name;
     private String studentPhone;
     private String studentEmail;
+
+    studentData(){
+
+    }
+
+    private static final studentData instance = new studentData();
+
+    public static studentData getInstance() {
+        return instance;
+    }
 
     public studentData(int studentId, String fName, String sName, String studentPhone, String studentEmail) {
         this.studentId = studentId;
@@ -34,5 +47,13 @@ public class studentData {
 
     public String getStudentEmail() {
         return studentEmail;
+    }
+
+    public void setStudentPage(String studentPage) {
+        StudentPage = studentPage;
+    }
+
+    public String getStudentPage() {
+        return StudentPage;
     }
 }
