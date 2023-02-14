@@ -11,38 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<!--<AnchorPane prefHeight="500.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.logControl">-->
-<!--                <children>-->
-<!--                    <AnchorPane layoutX="386.0" layoutY="1.0" prefHeight="500.0" prefWidth="385.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="385.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">-->
-<!--                        <children>-->
-<!--                            <Label layoutX="123.0" layoutY="211.0" prefHeight="49.0" prefWidth="137.0" stylesheets="@../../../css_images/design.css" text="Sign In" textFill="#4f2773">-->
-<!--                                <font>-->
-<!--                                    <Font name="Berlin Sans FB" size="48.0" />-->
-<!--                                </font>-->
-<!--                            </Label>-->
-<!--                            <TextField fx:id="tfLogName" layoutX="101.0" layoutY="292.0" prefHeight="38.0" prefWidth="182.0" promptText="Username" styleClass="textfield-design" stylesheets="@../../../css_images/design.css" />-->
-<!--                            <TextField fx:id="tfLogPass" layoutX="101.0" layoutY="347.0" prefHeight="37.0" prefWidth="182.0" promptText="Password" styleClass="textfield-design" stylesheets="@../../../css_images/design.css" />-->
-<!--                            <Button fx:id="btLogin" layoutX="142.0" layoutY="395.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="101.0" styleClass="button-design" stylesheets="@../../../css_images/design.css" text="Button" textFill="WHITE">-->
-<!--                               <font>-->
-<!--                                  <Font size="15.0" />-->
-<!--                               </font></Button>-->
-<!--                            <Hyperlink fx:id="btSignGo" layoutX="126.0" layoutY="462.0" text="Haven't registered yet?" />-->
-<!--            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="116.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">-->
-<!--               <image>-->
-<!--                  <Image url="@../../../css_images/icons8-log-in-96.png" />-->
-<!--               </image>-->
-<!--            </ImageView>-->
-<!--                        </children></AnchorPane>-->
-<!--                    <AnchorPane prefHeight="500.0" prefWidth="385.0" styleClass="login-bg" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="385.0" AnchorPane.topAnchor="0.0">-->
-<!--         <children>-->
-<!--                            <ImageView fitHeight="144.0" fitWidth="263.0" layoutX="73.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow" AnchorPane.leftAnchor="73.0" AnchorPane.topAnchor="178.0">-->
-<!--                                <image>-->
-<!--                                    <Image url="@../../../css_images/logo.png" />-->
-<!--                                </image>-->
-<!--                            </ImageView>-->
-<!--         </children></AnchorPane>-->
-<!--                </children>-->
-<!--</AnchorPane>-->
 
 <AnchorPane prefHeight="500.0" prefWidth="770.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.logControl">
     <children>
