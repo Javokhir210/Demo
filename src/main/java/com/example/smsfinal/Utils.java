@@ -215,9 +215,7 @@ public class Utils {
                     "jdbc:mysql://localhost:3306/swingapp", "root", "");
             preparedStatement = connect.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
-            studentData
-
-                    studentD;
+            studentData studentD;
 
             while (resultSet.next()){
                 studentD = new studentData(resultSet.getInt("id"), resultSet.getString("name"),

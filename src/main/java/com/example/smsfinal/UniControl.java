@@ -11,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-
 import java.net.URL;
 import java.sql.*;
 import java.util.Optional;
@@ -629,9 +628,9 @@ public class UniControl implements Initializable {
         col_adminPStudentEmail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
 
         table_adminStudent.setItems(addStudentList);
-        AdminStudentSearch1();
-
+//        AdminStudentSearch1();
     }
+
 
 
     @Override

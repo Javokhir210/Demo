@@ -10,10 +10,11 @@ public class studentData {
     private String s1Name;
     private String studentPhone;
     private String studentEmail;
+    private String group = "1";
+    private Integer mark = 5;
 
     studentData(){
     }
-
     private static final studentData instance = new studentData();
 
     public static studentData getInstance() {
@@ -26,6 +27,14 @@ public class studentData {
         this.s1Name = sName;
         this.studentPhone = studentPhone;
         this.studentEmail = studentEmail;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public Integer getMark() {
+        return mark;
     }
 
     public int getStudentId() {
