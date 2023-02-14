@@ -12,7 +12,6 @@ public class studentData {
     private String studentEmail;
 
     studentData(){
-
     }
 
     private static final studentData instance = new studentData();

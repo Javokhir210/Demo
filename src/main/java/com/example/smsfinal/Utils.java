@@ -75,7 +75,7 @@ public class Utils {
 //            else {
 //                psCheck = connection.prepareStatement("SELECT password FROM admin WHERE email = ?");
 //            }
-//
+
             psCheck.setString(1, username);
             resultSet = psCheck.executeQuery();
 
