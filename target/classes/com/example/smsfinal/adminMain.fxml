@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.UniControl">
+<AnchorPane prefHeight="500.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.UniControl">
    <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
       <children>
          <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -113,23 +104,23 @@
                                                          <Font name="System Bold" size="12.0" />
                                                       </font>
                                                    </Label>
-                                                   <Label fx:id="homeTotalStudent" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="15.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
+                                                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="15.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
                                                       <font>
-                                                         <Font name="System Bold" size="14.0" />
+                                                         <Font name="System Bold" size="12.0" />
                                                       </font>
                                                    </Label>
                                                 </children>
                                              </AnchorPane>
                                              <AnchorPane layoutX="205.0" layoutY="17.0" prefHeight="77.0" prefWidth="180.0" styleClass="card" stylesheets="@../../../css_images/design.css">
                                                 <children>
-                                                   <Label layoutX="62.0" layoutY="50.0" prefHeight="17.0" prefWidth="91.0" text="Total Teachers" textFill="#fcfcfc">
+                                                   <Label layoutX="63.0" layoutY="46.0" prefHeight="17.0" prefWidth="91.0" text="Total Teachers" textFill="#fcfcfc">
                                                       <font>
                                                          <Font name="System Bold" size="12.0" />
                                                       </font>
                                                    </Label>
-                                                   <Label fx:id="homeTotalTeacher" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="130.0" layoutY="13.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
+                                                   <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="130.0" layoutY="13.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
                                                       <font>
-                                                         <Font name="System Bold" size="14.0" />
+                                                         <Font name="System Bold" size="12.0" />
                                                       </font>
                                                    </Label>
                                                    <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
@@ -139,24 +130,7 @@
                                                    </ImageView>
                                                 </children>
                                              </AnchorPane>
-                                             <AnchorPane layoutX="395.0" layoutY="16.0" prefHeight="77.0" prefWidth="180.0" styleClass="card" stylesheets="@../../../css_images/design.css">
-                                                <children>
-                                                   <Label layoutX="59.0" layoutY="51.0" prefHeight="17.0" prefWidth="104.0" text="Available Cources" textFill="#fcfcfc">
-                                                      <font>
-                                                         <Font name="System Bold" size="12.0" />
-                                                      </font>
-                                                   </Label>
-                                                   <Label fx:id="homeTotalCourses" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="131.0" layoutY="14.0" prefHeight="17.0" prefWidth="32.0" text="0" textFill="WHITE">
-                                                      <font>
-                                                         <Font name="System Bold" size="14.0" />
-                                                      </font>
-                                                   </Label>
-                                                   <ImageView fitHeight="33.0" fitWidth="34.0" layoutX="19.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                                                      <image>
-                                                         <Image url="@../../../css_images/Course-Progress-Icon.png" />
-                                                      </image>
-                                                   </ImageView>
-                                                </children></AnchorPane>
+                                             <AnchorPane layoutX="395.0" layoutY="16.0" prefHeight="77.0" prefWidth="180.0" styleClass="card" stylesheets="@../../../css_images/design.css" />
                                           </children>
                                        </AnchorPane>
                                        <BarChart layoutX="17.0" layoutY="120.0" prefHeight="150.0" prefWidth="555.0" style="-fx-background-color: #f7bce9;" title="Students' Data chart">
@@ -272,7 +246,7 @@
                                        </Button>
                                     </children>
                                  </AnchorPane>
-                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
+                                 <AnchorPane fx:id="AdminTeacher_page" layoutX="9.0" layoutY="10.0" prefHeight="440.0" prefWidth="580.0" stylesheets="@../../../css_images/design.css" visible="false" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="9.0">
                                     <styleClass>
                                        <String fx:value="back" />
                                        <String fx:value="shadow" />
