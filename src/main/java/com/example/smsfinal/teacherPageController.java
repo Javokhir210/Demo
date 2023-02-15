@@ -6,12 +6,17 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 
@@ -53,6 +58,52 @@ public class teacherPageController implements Initializable {
     @FXML
     private TableColumn<studentData, String > col_teacherPStudentMark;
 
+    @FXML
+    private Label teacher_studentNumber;
+
+    @FXML
+    private Button teacher_bt_group1;
+
+    @FXML
+    private Button teacher_bt_group2;
+
+    public void groupNum(String groupType){
+        String sql = "SELECT COUNT(id) FROM "+ groupType;
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int countData = 0;
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                countData = resultSet.getInt("COUNT(id)");
+            }
+
+            teacher_studentNumber.setText(String.valueOf(countData));
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ObservableList<studentData> StudentList2;
+
+    public void teacher_StudentShowList2(){
+        StudentList2 = Utils.addStudentListData2();
+
+        col_teacherPStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+        col_teacherPStudentName.setCellValueFactory(new PropertyValueFactory<>("f1Name"));
+        col_teacherPStudentSurname.setCellValueFactory(new PropertyValueFactory<>("s1Name"));
+        col_teacherPStudentGroup.setCellValueFactory(new PropertyValueFactory<>("group"));
+        col_teacherPStudentMark.setCellValueFactory(new PropertyValueFactory<>("mark"));
+
+        table_teacherStudent.setItems(StudentList2);
+//        AdminStudentSearch1();
+    }
 
 
 
@@ -73,6 +124,23 @@ public class teacherPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        teacher_bt_group1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            groupNum("users");
+            teacher_StudentShowList();
+            }
+        });
+
+        teacher_bt_group2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                groupNum("users2");
+                teacher_StudentShowList2();
+            }
+        });
+
         btn_TeacherHome.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -110,7 +178,6 @@ public class teacherPageController implements Initializable {
             }
         });
 
-        teacher_StudentShowList();
 
     }
 }

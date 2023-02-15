@@ -201,6 +201,33 @@ public class Utils {
         page.setVisible(true);
     }
 
+    public static ObservableList<studentData> addStudentListData2(){
+
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        ObservableList<studentData> listData2 = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM users2";
+
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            studentData studentD;
+
+            while (resultSet.next()){
+                studentD = new studentData(resultSet.getInt("id"), resultSet.getString("name"),
+                        resultSet.getString("surname"), resultSet.getString("phone"),
+                        resultSet.getString("email"));
+                listData2.add(studentD);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }return listData2;
+    }
+
     public static ObservableList<studentData> addStudentListData(){
 
         Connection connect = null;
@@ -256,4 +283,31 @@ public class Utils {
             e.printStackTrace();
         }return listData1;
     }
+
+    public static ObservableList<courseData> courseListData(){
+
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        ObservableList<courseData> listData2 = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM courses ";
+
+        try {
+            connect = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/swingapp", "root", "");
+            preparedStatement = connect.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+            courseData courseD;
+
+            while (resultSet.next()){
+                courseD = new courseData(resultSet.getInt("number"), resultSet.getString("courseName"),
+                        resultSet.getString("professor"));
+                listData2.add(courseD);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }return listData2;
+    }
+
 }

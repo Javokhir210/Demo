@@ -145,7 +145,7 @@
                                     <Image url="@../../../css_images/name.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="453.0" layoutY="275.0" prefHeight="17.0" prefWidth="76.0" text="By ChatGPT" />
+                              <Label layoutX="450.0" layoutY="259.0" prefHeight="17.0" prefWidth="76.0" text="By ChatGPT" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="23.0" layoutY="32.0" prefHeight="137.0" prefWidth="127.0" style="-fx-background-color: #fff; -fx-border-color: #888;">
@@ -159,7 +159,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="TeacherStudent_page" layoutX="140.0" layoutY="79.0" prefHeight="457.6" prefWidth="595.2" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <AnchorPane fx:id="TeacherStudent_page" layoutX="140.0" layoutY="79.0" prefHeight="457.6" prefWidth="595.2" style="-fx-background-color: #fff;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <children>
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="262.0" styleClass="card" stylesheets="@../../../css_images/design.css">
                            <children>
@@ -175,15 +175,6 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="315.0" layoutY="46.0" prefHeight="34.0" prefWidth="89.0" styleClass="card" stylesheets="@../../../css_images/design.css">
-                           <children>
-                              <Label layoutX="7.0" prefHeight="25.0" prefWidth="95.0" text="Group 1" textFill="WHITE">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
                         <TableView fx:id="table_teacherStudent" layoutX="12.0" layoutY="117.0" prefHeight="320.0" prefWidth="565.0">
                           <columns>
                             <TableColumn fx:id="col_teacherPStudentId" prefWidth="49.0" text="ID" />
@@ -193,15 +184,16 @@
                               <TableColumn fx:id="col_teacherPStudentMark" prefWidth="97.0" text="Mark" />
                           </columns>
                         </TableView>
-                        <AnchorPane layoutX="444.0" layoutY="46.0" prefHeight="34.0" prefWidth="89.0" styleClass="card" stylesheets="@../../../css_images/design.css">
-                           <children>
-                              <Label layoutX="7.0" prefHeight="25.0" prefWidth="95.0" text="Group 2" textFill="WHITE">
-                                 <font>
-                                    <Font size="21.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
+                        <Button fx:id="teacher_bt_group1" layoutX="310.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #3750de;" text="Group 1" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="teacher_bt_group2" layoutX="438.0" layoutY="42.0" mnemonicParsing="false" style="-fx-background-color: #3750de;" text="Group 2" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="TeacherTeacher_page" prefHeight="447.6" prefWidth="585.2" style="-fx-background-color: #fff;" visible="false" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">

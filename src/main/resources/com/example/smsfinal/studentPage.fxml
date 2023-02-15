@@ -5,7 +5,6 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -45,17 +44,17 @@
                      </font>
                   </Label>
                   <Line endX="32.0" layoutX="118.0" layoutY="132.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
-                  <Button fx:id="btn_AdminHome" layoutX="23.0" layoutY="152.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My profile" textFill="WHITE">
+                  <Button fx:id="btn_studentHome" layoutX="23.0" layoutY="152.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My profile" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_AdminStudent" layoutX="23.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My Cources" textFill="WHITE">
+                  <Button fx:id="btn_studentStudent" layoutX="23.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My Cources" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_AdminTeacher" layoutX="23.0" layoutY="220.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Timetable" textFill="WHITE">
+                  <Button fx:id="btn_studentTime" layoutX="23.0" layoutY="220.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Timetable" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -93,7 +92,7 @@
                <children>
                   <AnchorPane prefHeight="457.0" prefWidth="594.0" style="-fx-background-color: #fff;">
                      <children>
-                        <AnchorPane layoutX="3.0" layoutY="4.0" prefHeight="451.0" prefWidth="586.0" style="-fx-background-color: #47ff54;" stylesheets="@../../../css_images/design.css" visible="false">
+                        <AnchorPane fx:id="StudentHome_page" layoutX="3.0" layoutY="4.0" prefHeight="451.0" prefWidth="586.0" style="-fx-background-color: #47ff54;" stylesheets="@../../../css_images/design.css">
                            <children>
                               <AnchorPane prefHeight="190.0" prefWidth="586.0" style="-fx-background-color: #b8d7fc;" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="261.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
@@ -246,28 +245,23 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </AnchorPane>
-                        <AnchorPane layoutX="2.0" layoutY="3.0" prefHeight="450.0" prefWidth="590.0" style="-fx-background-color: #fff;" visible="false">
+                        <AnchorPane fx:id="StudentStudent_page" layoutX="2.0" layoutY="3.0" prefHeight="452.0" prefWidth="590.0" style="-fx-background-color: #fff;">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0" prefHeight="274.0" prefWidth="566.0">
+                              <TableView fx:id="table_studentCourse" layoutX="14.0" layoutY="14.0" prefHeight="274.0" prefWidth="566.0">
                                 <columns>
-                                  <TableColumn prefWidth="73.59997940063477" text="No" />
-                                  <TableColumn prefWidth="153.5999755859375" text="Course Name" />
-                                    <TableColumn prefWidth="136.7999725341797" text="Prof. Name" />
-                                    <TableColumn prefWidth="75.0" text="Grade" />
-                                    <TableColumn prefWidth="75.0" text="Attendance" />
+                                  <TableColumn fx:id="col_studentPCourseId" prefWidth="51.0" text="No" />
+                                  <TableColumn fx:id="col_studentPCourseName" minWidth="9.0" prefWidth="136.0" text="Course Name" />
+                                    <TableColumn fx:id="col_studentPProfName" prefWidth="176.0" text="Prof. Name" />
+                                    <TableColumn fx:id="col_studentPCourseGrade" minWidth="0.0" prefWidth="91.0" text="Grade" />
+                                    <TableColumn fx:id="col_studentPCourseAttendance" prefWidth="110.0" text="Attendance" />
                                 </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
                               </TableView>
-                              <ChoiceBox layoutX="14.0" layoutY="327.0" prefWidth="150.0" />
-                              <Button layoutX="390.0" layoutY="314.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #090;" text="Add" textFill="WHITE" />
-                              <Button layoutX="390.0" layoutY="377.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #800;" text="Remove" textFill="WHITE" />
-                              <ComboBox layoutX="203.0" layoutY="389.0" prefWidth="150.0" />
-                              <ComboBox layoutX="203.0" layoutY="327.0" prefWidth="150.0" />
+                              <Button fx:id="studentSubjectAdd" layoutX="391.0" layoutY="343.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #090;" text="Add" textFill="WHITE" />
+                              <ComboBox fx:id="courseStudent" layoutX="22.0" layoutY="356.0" prefWidth="150.0" />
+                              <ComboBox fx:id="profStudent" layoutX="204.0" layoutY="356.0" prefWidth="150.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="4.0" layoutY="60.0" prefHeight="340.0" prefWidth="584.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="60.0">
+                        <AnchorPane fx:id="StudentTime_page" layoutX="4.0" layoutY="3.0" prefHeight="446.0" prefWidth="584.0" style="-fx-background-color: #fff;" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="3.0">
                               <children>
                                  <ImageView fitHeight="332.0" fitWidth="579.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                                     <image>

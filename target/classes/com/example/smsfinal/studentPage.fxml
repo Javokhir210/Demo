@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.studentPageController">
+<AnchorPane prefHeight="500.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.smsfinal.studentPageController">
    <children>
       <BorderPane layoutX="6.0" prefHeight="500.0" prefWidth="770.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -36,17 +44,17 @@
                      </font>
                   </Label>
                   <Line endX="32.0" layoutX="118.0" layoutY="132.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
-                  <Button fx:id="btn_AdminHome" layoutX="23.0" layoutY="152.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My profile" textFill="WHITE">
+                  <Button fx:id="btn_studentHome" layoutX="23.0" layoutY="152.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My profile" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_AdminStudent" layoutX="23.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My Cources" textFill="WHITE">
+                  <Button fx:id="btn_studentStudent" layoutX="23.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My Cources" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_AdminTeacher" layoutX="23.0" layoutY="220.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="My Grades" textFill="WHITE">
+                  <Button fx:id="btn_studentTime" layoutX="23.0" layoutY="220.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../css_images/design.css" text="Timetable" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -73,7 +81,7 @@
                   </ImageView>
                   <ImageView fitHeight="30.0" fitWidth="38.0" layoutX="24.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../css_images/218656.png" />
+                        <Image url="@../../../css_images/calendar.png" />
                      </image>
                   </ImageView>
                </children>
@@ -82,158 +90,297 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane layoutX="8.0" layoutY="7.0" prefHeight="444.0" prefWidth="576.0" style="-fx-background-color: #47ff54;" stylesheets="@../../../css_images/design.css">
+                  <AnchorPane prefHeight="457.0" prefWidth="594.0" style="-fx-background-color: #fff;">
                      <children>
-                        <AnchorPane layoutX="8.0" layoutY="14.0" prefHeight="183.0" prefWidth="581.0" style="-fx-background-color: #b8d7fc;" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="261.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="StudentHome_page" layoutX="3.0" layoutY="4.0" prefHeight="451.0" prefWidth="586.0" style="-fx-background-color: #47ff54;" stylesheets="@../../../css_images/design.css">
                            <children>
-                              <Label layoutX="35.0" layoutY="48.0" prefHeight="22.0" prefWidth="59.0" text="Name">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="35.0" layoutY="72.0" prefHeight="22.0" prefWidth="60.0" text="Surname">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="35.0" layoutY="96.0" prefHeight="22.0" prefWidth="57.0" text="ID">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="102.0" layoutY="72.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="102.0" layoutY="48.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="102.0" layoutY="96.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="StudentLabelName" layoutX="127.0" layoutY="50.0" prefHeight="20.0" prefWidth="91.0" text="Name">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="StudentLabelSurname" layoutX="127.0" layoutY="73.0" prefHeight="20.0" prefWidth="91.0" text="Surname">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="StudentLabelId" layoutX="127.0" layoutY="95.0" prefHeight="20.0" prefWidth="91.0" text="Id">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="38.0" layoutY="14.0" text="Academic Details">
+                              <AnchorPane prefHeight="190.0" prefWidth="586.0" style="-fx-background-color: #b8d7fc;" stylesheets="@../../../css_images/design.css" AnchorPane.bottomAnchor="261.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="35.0" layoutY="48.0" prefHeight="22.0" prefWidth="59.0" text="Name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="35.0" layoutY="72.0" prefHeight="22.0" prefWidth="60.0" text="Surname">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="35.0" layoutY="96.0" prefHeight="22.0" prefWidth="57.0" text="ID">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="102.0" layoutY="72.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="102.0" layoutY="48.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="102.0" layoutY="96.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="StudentLabelName" layoutX="127.0" layoutY="50.0" prefHeight="20.0" prefWidth="91.0" text="Name">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="StudentLabelSurname" layoutX="127.0" layoutY="73.0" prefHeight="20.0" prefWidth="91.0" text="Surname">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="StudentLabelId" layoutX="127.0" layoutY="95.0" prefHeight="20.0" prefWidth="91.0" text="Id">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="38.0" layoutY="14.0" text="Academic Details">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="318.0" layoutY="49.0" prefHeight="22.0" prefWidth="59.0" text="Email">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="318.0" layoutY="73.0" prefHeight="22.0" prefWidth="60.0" text="Phone">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="318.0" layoutY="97.0" prefHeight="22.0" prefWidth="67.0" text="Password">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="386.0" layoutY="73.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="386.0" layoutY="49.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="386.0" layoutY="97.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="StudentLabelEmail" layoutX="410.0" layoutY="51.0" prefHeight="20.0" prefWidth="91.0" text="Email">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="StudentLabelPhone" layoutX="410.0" layoutY="74.0" prefHeight="20.0" prefWidth="91.0" text="Phone">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="410.0" layoutY="96.0" prefHeight="20.0" prefWidth="91.0" text="********">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="305.0" layoutY="14.0" text="Personal Information">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="319.0" layoutY="120.0" prefHeight="22.0" prefWidth="67.0" text="Country">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="387.0" layoutY="120.0" text=":">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="411.0" layoutY="119.0" prefHeight="20.0" prefWidth="91.0" text="Uzbekistan">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="back" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <LineChart layoutX="41.0" layoutY="229.0" prefHeight="190.0" prefWidth="500.0" style="-fx-background-color: #f7bce9;">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <Label layoutX="247.0" layoutY="197.0" text="Attendance">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="318.0" layoutY="49.0" prefHeight="22.0" prefWidth="59.0" text="Email">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="318.0" layoutY="73.0" prefHeight="22.0" prefWidth="60.0" text="Phone">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="318.0" layoutY="97.0" prefHeight="22.0" prefWidth="67.0" text="Password">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="386.0" layoutY="73.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="386.0" layoutY="49.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="386.0" layoutY="97.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="StudentLabelEmail" layoutX="410.0" layoutY="51.0" prefHeight="20.0" prefWidth="91.0" text="Email">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="StudentLabelPhone" layoutX="410.0" layoutY="74.0" prefHeight="20.0" prefWidth="91.0" text="Phone">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="410.0" layoutY="96.0" prefHeight="20.0" prefWidth="91.0" text="********">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="305.0" layoutY="14.0" text="Personal Information">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="319.0" layoutY="120.0" prefHeight="22.0" prefWidth="67.0" text="Country">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="387.0" layoutY="120.0" text=":">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="411.0" layoutY="119.0" prefHeight="20.0" prefWidth="91.0" text="Uzbekistan">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
+                              <Line endX="-55.0" layoutX="196.0" layoutY="277.0" startX="-100.0" stroke="#ff0101" />
+                              <Line endX="-20.0" layoutX="253.0" layoutY="292.0" startX="-100.0" stroke="#ff0101" />
+                              <Line endX="-90.0" layoutX="442.0" layoutY="363.0" startX="-100.0" stroke="#ff0101" />
+                              <Line endX="-16.0" layoutX="343.0" layoutY="277.0" startX="-100.0" stroke="#ff0101" />
+                              <Line endX="-56.0" endY="18.5" layoutX="208.0" layoutY="274.0" startX="-68.0" startY="3.0" stroke="#ff0101" />
+                              <Line endX="-56.0" endY="18.5" layoutX="291.0" layoutY="274.0" startX="-48.5" startY="2.5" stroke="#ff0101" />
+                              <Line endX="-53.0" endY="89.0" layoutX="396.0" layoutY="273.0" startX="-68.0" startY="3.0" stroke="#ff0101" />
+                              <Line endX="-56.0" endY="18.5" layoutX="406.0" layoutY="343.0" startX="-33.0" startY="-41.0" stroke="#ff0101" />
+                              <Line endX="-16.0" layoutX="474.0" layoutY="301.0" startX="-100.0" stroke="#ff0101" />
                            </children>
                            <styleClass>
                               <String fx:value="back" />
                               <String fx:value="shadow" />
                            </styleClass>
                         </AnchorPane>
-                        <LineChart layoutX="41.0" layoutY="229.0" prefHeight="190.0" prefWidth="500.0" style="-fx-background-color: #f7bce9;">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </LineChart>
-                        <Label layoutX="247.0" layoutY="197.0" text="Attendance">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                        <Line endX="-55.0" layoutX="196.0" layoutY="277.0" startX="-100.0" stroke="#ff0101" />
-                        <Line endX="-20.0" layoutX="253.0" layoutY="292.0" startX="-100.0" stroke="#ff0101" />
-                        <Line endX="-90.0" layoutX="442.0" layoutY="363.0" startX="-100.0" stroke="#ff0101" />
-                        <Line endX="-16.0" layoutX="343.0" layoutY="277.0" startX="-100.0" stroke="#ff0101" />
-                        <Line endX="-56.0" endY="18.5" layoutX="208.0" layoutY="274.0" startX="-68.0" startY="3.0" stroke="#ff0101" />
-                        <Line endX="-56.0" endY="18.5" layoutX="291.0" layoutY="274.0" startX="-48.5" startY="2.5" stroke="#ff0101" />
-                        <Line endX="-53.0" endY="89.0" layoutX="396.0" layoutY="273.0" startX="-68.0" startY="3.0" stroke="#ff0101" />
-                        <Line endX="-56.0" endY="18.5" layoutX="406.0" layoutY="343.0" startX="-33.0" startY="-41.0" stroke="#ff0101" />
-                        <Line endX="-16.0" layoutX="474.0" layoutY="301.0" startX="-100.0" stroke="#ff0101" />
+                        <AnchorPane fx:id="StudentStudent_page" layoutX="2.0" layoutY="3.0" prefHeight="452.0" prefWidth="590.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <TableView fx:id="table_studentCourse" layoutX="14.0" layoutY="14.0" prefHeight="274.0" prefWidth="566.0">
+                                <columns>
+                                  <TableColumn fx:id="col_studentPCourseId" prefWidth="51.0" text="No" />
+                                  <TableColumn fx:id="col_studentPCourseName" minWidth="9.0" prefWidth="136.0" text="Course Name" />
+                                    <TableColumn fx:id="col_studentPProfName" prefWidth="176.0" text="Prof. Name" />
+                                    <TableColumn fx:id="col_studentPCourseGrade" minWidth="0.0" prefWidth="91.0" text="Grade" />
+                                    <TableColumn fx:id="col_studentPCourseAttendance" prefWidth="110.0" text="Attendance" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="studentSubjectAdd" layoutX="391.0" layoutY="343.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #090;" text="Add" textFill="WHITE" />
+                              <ComboBox fx:id="courseStudent" layoutX="22.0" layoutY="356.0" prefWidth="150.0" />
+                              <ComboBox fx:id="profStudent" layoutX="204.0" layoutY="356.0" prefWidth="150.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="StudentTime_page" layoutX="4.0" layoutY="3.0" prefHeight="446.0" prefWidth="584.0" style="-fx-background-color: #fff;" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="3.0">
+                              <children>
+                                 <ImageView fitHeight="332.0" fitWidth="579.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../css_images/Timetable.png" />
+                                    </image>
+                                 </ImageView>
+                                 <AnchorPane layoutX="91.0" layoutY="114.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #FFA820;" stylesheets="@../../../css_images/design.css">
+                                    <children>
+                                       <Label layoutX="4.0" layoutY="34.0" text="SSE05" />
+                                       <Label layoutX="123.0" layoutY="1.0" text="610CL" />
+                                       <Label layoutX="62.0" layoutY="5.0" text="SE">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane layoutX="254.0" layoutY="114.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #80E0C0;">
+                                    <children>
+                                       <Label layoutX="4.0" layoutY="34.0" text="SSE03" />
+                                       <Label layoutX="123.0" layoutY="1.0" text="610CL" />
+                                       <Label layoutX="46.0" layoutY="5.0" text="MATH">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane layoutX="91.0" layoutY="169.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #FFA820;">
+                                    <children>
+                                       <Label layoutX="4.0" layoutY="34.0" text="SSE02" />
+                                       <Label layoutX="123.0" layoutY="1.0" text="608CL" />
+                                       <Label layoutX="62.0" layoutY="5.0" text="SE">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane layoutX="254.0" layoutY="169.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #FFE6FF;">
+                                    <children>
+                                       <Label layoutX="4.0" layoutY="34.0" text="SSE03" />
+                                       <Label layoutX="123.0" layoutY="1.0" text="608CL" />
+                                       <Label layoutX="62.0" layoutY="5.0" text="ItCS">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane layoutX="418.0" layoutY="169.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #FFA820;">
+                                    <children>
+                                       <Label layoutX="4.0" layoutY="34.0" text="SSE02" />
+                                       <Label layoutX="123.0" layoutY="1.0" text="608CL" />
+                                       <Label layoutX="62.0" layoutY="5.0" text="SE">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </AnchorPane>
+                                 <AnchorPane layoutX="254.0" layoutY="224.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #80E0C0;">
+                                    <children>
+                                       <Label layoutX="4.0" layoutY="34.0" text="SSE05" />
+                                       <Label layoutX="123.0" layoutY="1.0" text="610CL" />
+                                       <Label layoutX="48.0" layoutY="6.0" text="MATH">
+                                          <font>
+                                             <Font size="24.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </AnchorPane>
+                              <AnchorPane layoutX="254.0" layoutY="58.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #FFA9A9;">
+                                 <children>
+                                    <Label layoutX="1.0" layoutY="35.0" text="HP" />
+                                    <Label layoutX="133.0" text="605L" />
+                                    <Label layoutX="58.0" layoutY="6.0" text="GEN">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="91.0" layoutY="224.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #80E0C0;">
+                                 <children>
+                                    <Label layoutX="4.0" layoutY="34.0" text="SSE05" />
+                                    <Label layoutX="123.0" layoutY="1.0" text="610CL" />
+                                    <Label layoutX="46.0" layoutY="5.0" text="MATH">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="418.0" layoutY="224.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #80E0C0;">
+                                 <children>
+                                    <Label layoutX="4.0" layoutY="34.0" text="SSE05" />
+                                    <Label layoutX="123.0" layoutY="1.0" text="610CL" />
+                                    <Label layoutX="48.0" layoutY="6.0" text="MATH">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="91.0" layoutY="278.0" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #FFE6FF;">
+                                 <children>
+                                    <Label layoutX="4.0" layoutY="34.0" text="SSE05" />
+                                    <Label layoutX="123.0" layoutY="1.0" text="610CL" />
+                                    <Label layoutX="62.0" layoutY="5.0" text="ItCS">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              </children>
+                        </AnchorPane>
                      </children>
-                     <styleClass>
-                        <String fx:value="back" />
-                        <String fx:value="shadow" />
-                     </styleClass>
                   </AnchorPane>
                </children>
             </AnchorPane>
