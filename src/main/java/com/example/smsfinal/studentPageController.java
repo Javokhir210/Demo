@@ -82,6 +82,9 @@ public class studentPageController implements Initializable {
     @FXML
     private Button studentSubjectAdd;
 
+    @FXML
+    private Button student_back;
+
 
     private String[] prof = {"M.Uvaze", "S.Juraev", "F.Ermanov", "O.Qadam"};
 
@@ -162,6 +165,13 @@ public class studentPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        student_back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Utils.changePage(event, "log.fxml", "Login!");
+            }
+        });
 
         studentSubjectAdd.setOnAction(new EventHandler<ActionEvent>() {
             @Override

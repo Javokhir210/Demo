@@ -120,6 +120,9 @@ public class UniControl implements Initializable {
     @FXML
     private Label homeTotalCourses;
 
+    @FXML
+    private Button admin_back;
+
 
     public void totalCourses(){
         String sql = "SELECT COUNT(number) FROM courses";
@@ -486,7 +489,7 @@ public class UniControl implements Initializable {
 
                     addStudentShowList();
                     addStudentReset();
-                    AdminStudentSearch1();
+//                    AdminStudentSearch1();
 
                 }
             }
@@ -628,13 +631,21 @@ public class UniControl implements Initializable {
         col_adminPStudentEmail.setCellValueFactory(new PropertyValueFactory<>("studentEmail"));
 
         table_adminStudent.setItems(addStudentList);
-//        AdminStudentSearch1();
+        AdminStudentSearch1();
     }
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        admin_back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Utils.changePage(event, "log.fxml", "Login!");
+            }
+        });
+
         btn_AdminHome.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

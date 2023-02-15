@@ -11,6 +11,12 @@ public class studentData {
     private String studentPhone;
     private String studentEmail;
     private String group = "1";
+    private String group2 = "2";
+
+    public String getGroup2() {
+        return group2;
+    }
+
     private Integer mark = 5;
 
     studentData(){

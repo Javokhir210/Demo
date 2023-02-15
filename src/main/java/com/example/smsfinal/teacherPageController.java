@@ -67,6 +67,9 @@ public class teacherPageController implements Initializable {
     @FXML
     private Button teacher_bt_group2;
 
+    @FXML
+    private Button teacher_back;
+
     public void groupNum(String groupType){
         String sql = "SELECT COUNT(id) FROM "+ groupType;
         Connection connect = null;
@@ -98,7 +101,7 @@ public class teacherPageController implements Initializable {
         col_teacherPStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         col_teacherPStudentName.setCellValueFactory(new PropertyValueFactory<>("f1Name"));
         col_teacherPStudentSurname.setCellValueFactory(new PropertyValueFactory<>("s1Name"));
-        col_teacherPStudentGroup.setCellValueFactory(new PropertyValueFactory<>("group"));
+        col_teacherPStudentGroup.setCellValueFactory(new PropertyValueFactory<>("group2"));
         col_teacherPStudentMark.setCellValueFactory(new PropertyValueFactory<>("mark"));
 
         table_teacherStudent.setItems(StudentList2);
@@ -124,6 +127,13 @@ public class teacherPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        teacher_back.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Utils.changePage(event, "log.fxml", "Login!");
+            }
+        });
 
         teacher_bt_group1.setOnAction(new EventHandler<ActionEvent>() {
             @Override

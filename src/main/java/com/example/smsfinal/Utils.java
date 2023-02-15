@@ -69,7 +69,9 @@ public class Utils {
 
             else if (Objects.equals(LoginAs, "Teacher")) {
                 psCheck = connection.prepareStatement("SELECT password2 FROM teacher WHERE name = ?");
-                page1 = "teacherPage.fxml";
+                if (username == "Mohamed"){
+                    page1 = "teacherPage.fxml";
+                }else page1 = "teacherPage1.fxml";
                 passwordKey = "password2";
             }
 //            else {

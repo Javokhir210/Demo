@@ -84,6 +84,16 @@
                         <Image url="@../../../css_images/calendar.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="student_back" layoutX="36.0" layoutY="420.0" mnemonicParsing="false" style="-fx-background-color: #d66b29;" text="Back">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="31.0" fitWidth="26.0" layoutX="9.0" layoutY="419.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../css_images/340.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </left>
@@ -245,7 +255,7 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </AnchorPane>
-                        <AnchorPane fx:id="StudentStudent_page" layoutX="2.0" layoutY="3.0" prefHeight="452.0" prefWidth="590.0" style="-fx-background-color: #fff;">
+                        <AnchorPane fx:id="StudentStudent_page" layoutX="2.0" layoutY="3.0" prefHeight="452.0" prefWidth="590.0" style="-fx-background-color: #fff;" visible="false">
                            <children>
                               <TableView fx:id="table_studentCourse" layoutX="14.0" layoutY="14.0" prefHeight="274.0" prefWidth="566.0">
                                 <columns>

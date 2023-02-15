@@ -102,12 +102,12 @@
                                     <Font size="22.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="39.0" layoutY="123.0" prefHeight="34.0" prefWidth="151.0" text="b-day">
+                              <Label layoutX="37.0" layoutY="123.0" prefHeight="34.0" prefWidth="151.0" text=" 18.10.1988">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="38.0" layoutY="158.0" prefHeight="34.0" prefWidth="151.0" text="address">
+                              <Label layoutX="38.0" layoutY="158.0" prefHeight="34.0" prefWidth="151.0" text="Room 613">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -120,7 +120,7 @@
                                     <ColorAdjust />
                                  </effect>
                               </Button>
-                              <Label layoutX="39.0" layoutY="194.0" prefHeight="34.0" prefWidth="138.0" text="+99 897 146 61 11" />
+                              <Label layoutX="39.0" layoutY="194.0" prefHeight="34.0" prefWidth="138.0" text="+99 893 878 0218" />
                               <TextArea editable="false" layoutX="191.0" layoutY="63.0" prefHeight="238.0" prefWidth="352.0" text="-The new Uzbekistan University has recently acquired &#10; a team of highly qualified professors to teach &#10; students in a variety of disciplines. The faculty &#10; includes top experts in the fields of economics, &#10; business, mathematics, engineering, and more.&#10; Each professor contributes their unique expertise to &#10; help provide students with an educational experience&#10; that is second to none.">
                                  <font>
                                     <Font size="14.0" />
@@ -275,5 +275,15 @@
                     </AnchorPane>
                 </center>
             </BorderPane>
+      <Button fx:id="teacher_back" layoutX="46.0" layoutY="455.0" mnemonicParsing="false" style="-fx-background-color: #d66b29;" text="Back">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="31.0" fitWidth="26.0" layoutX="19.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../css_images/340.png" />
+         </image>
+      </ImageView>
         </children>
 </AnchorPane>

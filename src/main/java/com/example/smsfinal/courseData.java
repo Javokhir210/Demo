@@ -5,7 +5,7 @@ public class courseData {
     private String courseName;
     private String profName;
     private int grade= (int) (5.7 - Math.random());
-    private int attendance = (int) ((Math.random()+.7) * 60);
+    private int attendance = (int) ((Math.random()+.7) * 59);
 
 
     public courseData(int courseId, String courseName, String profName) {
